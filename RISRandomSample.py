@@ -1,4 +1,5 @@
 import sys
+import os
 import random
 import rispy
 
@@ -18,6 +19,7 @@ with open(fpath, 'r', encoding="utf-8-sig") as dataFile:
         outputContent.append(data[randIndex])
         data.pop(randIndex)
     print(str(len(outputContent))+" Entries")
+    os.makedirs("output", exist_ok = True)
     outpath = 'output/output.ris'
     with open(outpath, 'w', encoding="utf-8-sig") as dataFile:
         rispy.dump(outputContent, dataFile)
